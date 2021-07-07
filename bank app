@@ -1,0 +1,38 @@
+class bank:
+    bank_name="Sahith Bank Of India"
+    def __init__(self,name,balance):
+        self.name=name
+        self.balance=balance
+
+    def deposit(self,amount):
+        self.balance=amount+self.balance
+        print("Money Remaining", self.balance)
+
+    def withdraw(self,amount):
+        if self.balance > amount:
+            print("Insufficient funds")
+
+        else:
+            self.balance=self.balance-amount
+            print("money left", self.balance)
+
+print("welcome to",bank.bank_name)
+name=input("enter your name")
+balance=eval(input("enter the amount left in your account"))
+c=bank(name,balance)
+while True:
+    print("To deposit amount press d\nTo withdraw amount press w\nTo exit press e")
+    option=input("enter your option")
+    if option.lower()=="d":
+        amount=eval(input("enter the amount you want to deposit"))
+        c.deposit(amount)
+
+    elif option.lower()=="w":
+        amount=eval(input("enter the amount you want to withdraw"))
+        c.withdraw(amount)
+
+    elif option.lower()=="e":
+        print("Thanks for using our Bank")
+        break
+    else:
+        print("choose a correct option")
